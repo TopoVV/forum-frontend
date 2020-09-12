@@ -1,0 +1,12 @@
+.post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .post-meta-info {
+        display: flex;
+        flex-direction: row;
+        div {
+            padding: 5px;
+        }
+    }
+}

@@ -1,0 +1,15 @@
+h1 {
+    text-align: center;
+    margin: 0 auto;
+}
+
+ul {
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    li {
+        display: block;
+        padding: 5px;
+    }
+}
