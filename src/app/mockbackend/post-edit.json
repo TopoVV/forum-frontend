@@ -1,0 +1,13 @@
+{
+    "message": "The post has been edited",
+	"status": "success",
+	"postDto": {
+        "postId": 1,
+        "title": "post-title-new",
+        "text": "post-text-new",
+        "author": "post-author",
+        "visitsAmount": 1,
+        "commentsAmount": 0
+    }
+}
+	

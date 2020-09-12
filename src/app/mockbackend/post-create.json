@@ -1,0 +1,11 @@
+{
+    "message": "The post has been saved",
+	"status": "success",
+	"postDto": {
+        "postId": 1,
+        "title": "post-title",
+        "author": "author",
+        "visitsAmount": 1,
+        "commentsAmount": 0
+    }
+}

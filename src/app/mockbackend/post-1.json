@@ -1,0 +1,11 @@
+{
+    "status": "success",
+	"postDto": {
+	    	"postId": 1,
+	    	"title": "post-title",
+	    	"text": "text",
+	    	"author": "author",
+	    	"visitsAmount": 1,
+	    	"commentsAmount": 2
+        }
+    }	
