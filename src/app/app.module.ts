@@ -10,8 +10,8 @@ import { PostComponent } from './post/post.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
-import { SuperuserRegistrationComponent } from './superuser-registration/superuser-registration.component';
 import { RegistrationService } from './_services/registration.service';
+import { SuperuserRegistrationComponent } from './superuser-registration/superuser-registration.component';
 
 @NgModule({
   declarations: [

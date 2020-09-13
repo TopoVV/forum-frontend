@@ -1,25 +1,47 @@
-<form [formGroup]="superuserRegistrationForm">
+<form [formGroup]="registrationForm">
     <div class="form-group">
         <label for="username">Username:</label>
-        <input class="form-control"  type="text" name="username" id="username" formControlName="username">
+        <input class="form-control"
+               [ngClass]="{'is-invalid' : (registrationForm.get('username').errors?.required || registrationForm.get('username').errors?.required) && (registrationForm.get('username').touched || registrationForm.get('username').dirty)}"
+               type="text" name="username" id="username" formControlName="username">
+        <span [ngClass]="{'invalid-feedback' : registrationForm.get('username').errors?.required && (registrationForm.get('username').touched || registrationForm.get('username').dirty)}" 
+              *ngIf="registrationForm.get('username').errors?.required && (registrationForm.get('username').touched || registrationForm.get('username').dirty)">The username is required</span>
     </div>
     <div class="form-group">
         <label for="email">Email:</label>
-        <input class="form-control"  type="email" name="email" id="email" formControlName="email">
+        <input class="form-control"
+               [ngClass]="{'is-invalid' : (registrationForm.get('email').errors?.required || registrationForm.get('email').errors?.email) && (registrationForm.get('email').touched || registrationForm.get('email').dirty)}"
+               type="email" name="email" id="email" formControlName="email">
+        <span [ngClass]="{'invalid-feedback' : registrationForm.get('email').errors?.required && (registrationForm.get('email').touched || registrationForm.get('email').dirty)}" 
+              *ngIf="registrationForm.get('email').errors?.required && (registrationForm.get('email').touched || registrationForm.get('email').dirty)">The email is required</span>
+        <span [ngClass]="{'invalid-feedback' : registrationForm.get('email').errors?.email && (registrationForm.get('email').touched || registrationForm.get('email').dirty)}" 
+              *ngIf="registrationForm.get('email').errors?.email && (registrationForm.get('email').touched || registrationForm.get('email').dirty)">Invalid email format</span>
     </div>
     <div class="form-group">
         <label for="password">Password:</label>
-        <input class="form-control"  type="password" name="password" id="password" formControlName="password">
+        <input class="form-control" 
+               [ngClass]="{'is-invalid' : registrationForm.get('password').errors?.required && (registrationForm.get('password').touched || registrationForm.get('password').dirty)}"
+               type="password" name="password" id="password" formControlName="password">
+        <span [ngClass]="{'invalid-feedback' : registrationForm.get('password').errors?.required && (registrationForm.get('password').touched || registrationForm.get('password').dirty)}" 
+              *ngIf="registrationForm.get('password').errors?.required && (registrationForm.get('password').touched || registrationForm.get('password').dirty)">The password is required</span>
     </div>
     <div class="form-group">
         <label for="confirmPassword">Confirm Password:</label>
-        <input class="form-control"  type="password" name="confirmPassword" id="confirmPassword" formControlName="confirmPassword">
+        <input class="form-control" 
+               [ngClass]="{'is-invalid' : registrationForm.errors?.passwordNotConfirmed && (registrationForm.get('confirmPassword').touched || registrationForm.get('confirmPassword').dirty)}"
+               type="password" name="confirmPassword" id="confirmPassword" formControlName="confirmPassword">  
+        <span [ngClass]="{'invalid-feedback' : registrationForm.errors?.passwordNotConfirmed && (registrationForm.get('confirmPassword').touched || registrationForm.get('confirmPassword').dirty)}"
+              *ngIf="registrationForm.errors?.passwordNotConfirmed && (registrationForm.get('confirmPassword').touched || registrationForm.get('confirmPassword').dirty)">The password is not confirmed</span>
     </div>
     <div class="form-group">
         <label for="token">Token:</label>
-        <input class="form-control"  type="text" name="token" id="token" formControlName="token">
+        <input class="form-control" 
+               [ngClass]="{'is-invalid' : registrationForm.get('token').errors?.required && (registrationForm.get('token').touched || registrationForm.get('token').dirty)}"
+               type="text" name="token" id="token" formControlName="token">
+        <span [ngClass]="{'invalid-feedback' : registrationForm.get('token').errors?.required && (registrationForm.get('token').touched || registrationForm.get('token').dirty)}" 
+              *ngIf="registrationForm.get('token').errors?.required && (registrationForm.get('token').touched || registrationForm.get('token').dirty)">The token is required</span>
     </div>
     <div class="form-group">
-        <input class="form-control btn btn-primary btn-block" type="submit" (click)="register()">
+        <button class="form-control btn btn-primary btn-block" (click)="register()" [disabled]="!registrationForm.valid">Register</button>
     </div>
 </form>

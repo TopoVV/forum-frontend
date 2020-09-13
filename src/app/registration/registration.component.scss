@@ -1,6 +1,15 @@
-h1 {
+h1, h4 {
     text-align: center;
     margin: 0 auto;
+    
+}
+
+h1 {
+    padding: 10px;
+}
+
+h4 {
+    padding: 5px;
 }
 
 ul {
@@ -10,6 +19,13 @@ ul {
     justify-content: center;
     li {
         display: block;
-        padding: 5px;
+        a {
+            padding: 15px;
+            display: block;
+            text-decoration: none;
+        }
+        a:hover {
+            background-color: gray;
+        }
     }
 }

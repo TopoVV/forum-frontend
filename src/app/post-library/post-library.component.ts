@@ -7,7 +7,7 @@ import { Post } from './post';
   templateUrl: './post-library.component.html',
   styleUrls: ['./post-library.component.scss']
 })
-export class PostLibraryComponent implements OnInit {
+export class PostLibraryComponent {
 
   posts : Post[] = [];
 
@@ -18,9 +18,4 @@ export class PostLibraryComponent implements OnInit {
     this.posts = httpService.getAllPosts().posts.content;
     console.log(this.posts);
   }
-
-
-  ngOnInit(): void {
-  }
-
 }
