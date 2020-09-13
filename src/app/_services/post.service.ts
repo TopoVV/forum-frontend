@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { PostGetAllResponse, PostGetResponse } from './post-library/post';
+import { PostGetAllResponse, PostGetResponse } from '../post-library/post'
 
 @Injectable({
   providedIn: 'root'
 })
-export class HttpService {
+export class PostService {
 
   constructor(private http : HttpClient) { }
 

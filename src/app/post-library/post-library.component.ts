@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpService } from '../http.service';
+import { PostService } from '../_services/post.service';
 import { Post } from './post';
 
 @Component({
@@ -11,7 +11,7 @@ export class PostLibraryComponent implements OnInit {
 
   posts : Post[] = [];
 
-  constructor(private httpService : HttpService) { 
+  constructor(private httpService : PostService) { 
     // httpService.getAllPosts().subscribe(response => {
     //   this.posts = response.posts.content;
     // })

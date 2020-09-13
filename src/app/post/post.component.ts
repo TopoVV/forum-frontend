@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../post-library/post';
-import { HttpService } from '../http.service';
+import { PostService } from '../_services/post.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -8,17 +8,14 @@ import { Router, ActivatedRoute } from '@angular/router';
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss']
 })
-export class PostComponent implements OnInit {
+export class PostComponent {
   post : Post;
 
   constructor(
-    private httpService : HttpService,
+    private postService : PostService,
     private route : ActivatedRoute
   ) {
     const id = this.route.snapshot.params['id'];
-    this.post = httpService.getPostById(id).post;  
-  }
-
-  ngOnInit(): void {
+    this.post = postService.getPostById(id).post;  
   }
 }

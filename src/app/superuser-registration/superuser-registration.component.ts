@@ -1,12 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { EventEmitter } from 'protractor';
+import { RegistrationService } from '../_services/registration.service';
 
 @Component({
   selector: 'app-superuser-registration',
   templateUrl: './superuser-registration.component.html',
   styleUrls: ['./superuser-registration.component.scss']
 })
-export class SuperuserRegistrationComponent implements OnInit {
+export class SuperuserRegistrationComponent {
+
   superuserRegistrationForm = new FormGroup({
     username: new FormControl(''),
     email: new FormControl(''),
@@ -15,13 +18,12 @@ export class SuperuserRegistrationComponent implements OnInit {
     token: new FormControl('')
   })
 
-  constructor() { }
+  constructor(private registrationService : RegistrationService) { }
 
-  ngOnInit(): void {
-  }
-
-  register() {
+  register() : void {
     console.log(this.superuserRegistrationForm.value);
+    this.registrationService.reguisterSuperuser(this.superuserRegistrationForm.value)
+      .subscribe(response => console.log(response));
   }
 
 }

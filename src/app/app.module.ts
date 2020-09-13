@@ -5,12 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PostLibraryComponent } from './post-library/post-library.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HttpService } from './http.service';
+import { PostService } from'./_services/post.service';
 import { PostComponent } from './post/post.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { SuperuserRegistrationComponent } from './superuser-registration/superuser-registration.component';
+import { RegistrationService } from './_services/registration.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SuperuserRegistrationComponent } from './superuser-registration/superus
     AppRoutingModule
   ],
   providers: [
-    HttpService
+    PostService,
+    RegistrationService
   ],
   bootstrap: [AppComponent]
 })
