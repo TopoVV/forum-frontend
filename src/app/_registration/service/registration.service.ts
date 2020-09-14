@@ -13,7 +13,7 @@ export class RegistrationService {
 
   registerRegularUser(registrationData : any) {
     const url : string = 'http://localhost:8080/registration';
-    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    const headers : HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
 
     const registrationRequestJson =  JSON.stringify(registrationData);
     return this.http.post(url, registrationRequestJson, { headers: headers})
@@ -25,7 +25,7 @@ export class RegistrationService {
   reguisterSuperuser(registrationData : any) {
     const url : string = 'http://localhost:8080/registration/superuser';
     const registrationRequestJson : string =  JSON.stringify(registrationData);
-    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    const headers : HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
 
     return this.http.post<any>(url, registrationRequestJson, { headers: headers })
       .pipe(

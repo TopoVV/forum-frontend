@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
-import { RegistrationService } from '../registration.service';
-import { passwordConfirmedValidator } from '../passwordConfirmedValidator';
+import { RegistrationService } from '../service/registration.service';
+import { passwordConfirmedValidator } from '../validator/passwordConfirmedValidator';
 import { ValidationError } from 'src/app/_error/ValidationError';
 
 @Component({
@@ -16,6 +16,7 @@ export class SuperuserRegistrationComponent implements OnInit {
 
   usernameErrors: string[] = [];
   emailErrors: string[] = [];
+  tokenErrors: string[] = [];
 
   constructor(
     private registrationService: RegistrationService,
@@ -51,6 +52,9 @@ export class SuperuserRegistrationComponent implements OnInit {
       }
       if (e.invalidProperty === 'email') {
         this.emailErrors.push(e.error);
+      }
+      if (e.invalidProperty === 'token') {
+        this.tokenErrors.push(e.error);
       }
     }
   }

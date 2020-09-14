@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PostLibraryComponent } from './post-library/post-library.component';
+import { PostLibraryComponent } from './_post/post-library/post-library.component';
 import { AppComponent } from './app.component';
-import { PostComponent } from './post/post.component';
+import { PostComponent } from './_post/post/post.component';
 import { RegistrationComponent } from './_registration/registration/registration.component';
 import { UserRegistrationComponent } from './_registration/user-registration/user-registration.component';
 import { SuperuserRegistrationComponent } from './_registration/superuser-registration/superuser-registration.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './_login/login/login.component';
+import { HomeComponent } from './_home/home/home.component';
 
 const registrationRoutes : Routes = [
   { path: 'user', component: UserRegistrationComponent },
@@ -15,6 +16,7 @@ const registrationRoutes : Routes = [
 
 const routes: Routes = [
   { path: '', component: AppComponent },
+  { path: 'home', component: HomeComponent},
   { path: 'login', component: LoginComponent },
   { path: 'posts', component: PostLibraryComponent },
   { path: 'posts/:id', component: PostComponent },

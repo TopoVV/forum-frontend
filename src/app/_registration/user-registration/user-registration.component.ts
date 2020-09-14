@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validator, ValidatorFn, ValidationErrors, FormBuilder, Validators } from '@angular/forms';
-import { RegistrationService } from '../registration.service';
-import { passwordConfirmedValidator } from '../passwordConfirmedValidator';
+import { RegistrationService } from '../service/registration.service';
+import { passwordConfirmedValidator } from '../validator/passwordConfirmedValidator';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { ValidationError } from 'src/app/_error/ValidationError';
