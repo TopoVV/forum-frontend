@@ -17,6 +17,7 @@ import { LoginComponent } from './_login/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JwtInterceptor } from './_helper/jwt.interceptor';
 import { HomeComponent } from './_home/home/home.component';
+import { PostCreateComponent } from './_post/post-create/post-create.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HomeComponent } from './_home/home/home.component';
     UserRegistrationComponent,
     SuperuserRegistrationComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    PostCreateComponent
   ],
   imports: [
     ReactiveFormsModule,

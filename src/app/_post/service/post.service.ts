@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { PostGetAllResponse, PostGetResponse } from '../model/post';
@@ -9,7 +9,7 @@ import { PostGetAllResponse, PostGetResponse } from '../model/post';
 })
 export class PostService {
 
-  constructor(private http : HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   getAllPosts() {
     return this.http.get<PostGetAllResponse>("http://localhost:8080/posts")
@@ -18,11 +18,25 @@ export class PostService {
       );
   }
 
-  getPostById(id : number) {
-    return new PostGetResponse()
+  getPostById(id: number) {
+    return this.http.get<PostGetResponse>(`http://localhost:8080/posts/${id}`)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
-  handleError(errorResponse : HttpErrorResponse) {
+  createPost(newPostData: any) {
+    const url = 'http://localhost:8080/posts';
+    const createPostRequest = JSON.stringify(newPostData);
+    const headers = new HttpHeaders({'Content-Type':'application/json'});
+    
+    return this.http.post(url, createPostRequest, { headers: headers })
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  handleError(errorResponse: HttpErrorResponse) {
     console.log(errorResponse);
     return throwError("Error");
   }

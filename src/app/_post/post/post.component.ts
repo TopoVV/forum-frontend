@@ -8,14 +8,18 @@ import { Router, ActivatedRoute } from '@angular/router';
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss']
 })
-export class PostComponent {
-  post : Post;
+export class PostComponent implements OnInit {
+  post: Post = new Post();
 
   constructor(
-    private postService : PostService,
-    private route : ActivatedRoute
-  ) {
-    const id = this.route.snapshot.params['id'];
-    this.post = postService.getPostById(id).post;  
+    private postService: PostService,
+    private route: ActivatedRoute
+  ) {}
+
+  ngOnInit(): void {
+    const id: number = this.route.snapshot.params['id'];
+    this.postService.getPostById(id).subscribe(resposne => {
+      this.post = resposne.postDto;
+    });
   }
 }

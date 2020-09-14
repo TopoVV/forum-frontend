@@ -8,8 +8,9 @@ import { UserRegistrationComponent } from './_registration/user-registration/use
 import { SuperuserRegistrationComponent } from './_registration/superuser-registration/superuser-registration.component';
 import { LoginComponent } from './_login/login/login.component';
 import { HomeComponent } from './_home/home/home.component';
+import { PostCreateComponent } from './_post/post-create/post-create.component';
 
-const registrationRoutes : Routes = [
+const registrationRoutes: Routes = [
   { path: 'user', component: UserRegistrationComponent },
   { path: 'superuser', component: SuperuserRegistrationComponent }
 ]
@@ -19,8 +20,10 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'login', component: LoginComponent },
   { path: 'posts', component: PostLibraryComponent },
+  { path: 'posts/create', component: PostCreateComponent },
   { path: 'posts/:id', component: PostComponent },
-  { path: 'registration', component: RegistrationComponent, children: registrationRoutes }
+  { path: 'registration', component: RegistrationComponent, children: registrationRoutes },
+  { path: '**', component: HomeComponent }
 ];
 
 @NgModule({

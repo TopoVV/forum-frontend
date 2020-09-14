@@ -8,11 +8,11 @@ import { Post } from '../model/post';
 })
 export class PostLibraryComponent {
 
-  posts : Post[] = [];
+  posts: Post[] = [];
 
-  constructor(private postService : PostService) { 
+  constructor(private postService: PostService) { 
     postService.getAllPosts().subscribe(response => {
       this.posts = response.posts.content;
-    })
+    });
   }
 }

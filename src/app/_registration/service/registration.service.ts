@@ -9,11 +9,11 @@ import { ValidationErrors } from '@angular/forms';
 })
 export class RegistrationService {
 
-  constructor(private http : HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  registerRegularUser(registrationData : any) {
-    const url : string = 'http://localhost:8080/registration';
-    const headers : HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
+  registerRegularUser(registrationData: any) {
+    const url: string = 'http://localhost:8080/registration';
+    const headers: HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
 
     const registrationRequestJson =  JSON.stringify(registrationData);
     return this.http.post(url, registrationRequestJson, { headers: headers})
@@ -22,10 +22,10 @@ export class RegistrationService {
       );
   }
 
-  reguisterSuperuser(registrationData : any) {
-    const url : string = 'http://localhost:8080/registration/superuser';
-    const registrationRequestJson : string =  JSON.stringify(registrationData);
-    const headers : HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
+  reguisterSuperuser(registrationData: any) {
+    const url: string = 'http://localhost:8080/registration/superuser';
+    const registrationRequestJson: string =  JSON.stringify(registrationData);
+    const headers: HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
 
     return this.http.post<any>(url, registrationRequestJson, { headers: headers })
       .pipe(

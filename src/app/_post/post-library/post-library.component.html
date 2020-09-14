@@ -1,16 +1,17 @@
 <h1>Posts</h1>
-<ul>
-    <div *ngFor="let post of posts">
-        <div class="post">
-            <div class="post-main-info">
-                <div>{{post.postId}}</div>
-                <div><a [routerLink]="['/posts', post.postId]">{{post.title}}</a></div>    
-            </div>
-            <div class="post-meta-info">
-                <div>Author: {{post.author}}</div>
-                <div>Visits amount: {{post.visitsAmount}}</div>
-                <div>Comments amount: {{post.commentsAmount}}</div>
-            </div>
+<div>
+    <a [routerLink]="['create']">Create</a>
+</div>
+<div *ngFor="let post of posts">
+    <div class="post">
+        <div class="post-main-info">
+            <div>{{post.postId}}</div>
+            <div><a [routerLink]="['/posts', post.postId]">{{post.title}}</a></div>    
+        </div>
+        <div class="post-meta-info">
+            <div>Author: {{post.author}}</div>
+            <div>Visits amount: {{post.visitsAmount}}</div>
+            <div>Comments amount: {{post.commentsAmount}}</div>
         </div>
     </div>
-</ul>
+</div>

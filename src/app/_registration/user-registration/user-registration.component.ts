@@ -19,8 +19,8 @@ export class UserRegistrationComponent implements OnInit {
   emailErrors: string[] = [];
 
   constructor(
-    private registrationService : RegistrationService,
-    private fb : FormBuilder
+    private registrationService: RegistrationService,
+    private fb: FormBuilder
   ) {}
 
   ngOnInit(): void {
@@ -37,16 +37,16 @@ export class UserRegistrationComponent implements OnInit {
     this.emailErrors = [];
     this.registrationService.registerRegularUser(this.registrationForm.value)
       .subscribe({
-        next: (registrationResponse) => {
+        next: () => {
           this.registrationSuccess = true;
         },
-        error: (errors : ValidationError[]) => {
+        error: (errors: ValidationError[]) => {
           this.displayErrors(errors);
         }
       });
   }
 
-  displayErrors(errors : ValidationError[]) {
+  displayErrors(errors: ValidationError[]) {
     for (let e of errors) {
       if (e.invalidProperty === 'username') {
         this.usernameErrors.push(e.error);

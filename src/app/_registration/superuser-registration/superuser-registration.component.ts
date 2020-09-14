@@ -20,7 +20,7 @@ export class SuperuserRegistrationComponent implements OnInit {
 
   constructor(
     private registrationService: RegistrationService,
-    private fb : FormBuilder
+    private fb: FormBuilder
   ) { }
   
   ngOnInit(): void {
@@ -36,16 +36,16 @@ export class SuperuserRegistrationComponent implements OnInit {
   register() {
     this.registrationService.reguisterSuperuser(this.registrationForm.value)
       .subscribe({
-        next: (registrationResponse) => {
+        next: () => {
           this.registrationSuccess = true;
         },
-        error: (errors : ValidationError[]) => {
+        error: (errors: ValidationError[]) => {
           this.displayErrors(errors);
         }
       });
   }
 
-  displayErrors(errors : ValidationError[]) {
+  displayErrors(errors: ValidationError[]) {
     for (let e of errors) {
       if (e.invalidProperty === 'username') {
         this.usernameErrors.push(e.error);

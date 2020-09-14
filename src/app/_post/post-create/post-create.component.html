@@ -1,0 +1,13 @@
+<form [formGroup]="postCreateForm">
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input class="form-control" type="text" name="title" id="title" formControlName="title">
+    </div>
+    <div class="form-group">
+      <label for="text">Text:</label>
+      <textarea class="form-control" type="text" name="text" id="text" formControlName="text"></textarea>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary btn-block" (click)="savePost()">Save</button>
+    </div>
+</form>

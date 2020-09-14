@@ -1,5 +1,5 @@
 export class LoginResponse {
-    message : string;
+    message: string;
     status: string;
     token: string;
 }
